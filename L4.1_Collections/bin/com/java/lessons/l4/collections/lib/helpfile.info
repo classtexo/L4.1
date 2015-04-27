@@ -1,0 +1,33 @@
+Ukol1:
+Máš třídu 
+Person(String name, String surname, id)
+Přetiž metodu equals a hashcode - neco by melo jít vygenerovat jsou ale i lepsí způsoby.
+Napiš k tomu ověřovací testy - to, že jsi to implementoval dobře - to také zabere nějaký čas.
+
+Napln si list nejakými náhodnými persony, potom je zamíchej a vypiš.
+
+Potom tento list seřaď podle příjmení a jména personu. Vzestupne.
+
+Budeš potřebovat implementovat rozhraní Comparator<T>. https://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html
+
+K zamíchání a srovnání je potřeba knihovna Collections: http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html
+
+Během cyklu kontroluj jestli obsahuje seznam osobu. Kdyz tam ta osoba je, tak ji odstran.
+Přidej tam nějakého duplicitniho persona - a zjisti kolikrat se tam potom vyskytuje - je na to funkce.
+
+
+Ukol2:
+a)Udelej mapu, kde klíč bude id a value bude Konkretni person.
+Zkus pridat dvakrat ten samy klic do mapy. 
+Iteruj nad mapou vypis ji.
+
+
+Najdi nejakeho persona podle id a vypis ho.
+Převeď mapu na Set.
+
+
+HINT:
+Co nejvíce používej knihovnu Collections. To, že věci fungují testuj v testech.
+
+
+Pěkný večer :).
