@@ -34,7 +34,6 @@ public class Person  {
 	 *   Unique ID is set using internal STATIC idRegister (inremented) 
 	 */
 	public Person() {
-	  super();	
 	  this.id = this.getUniqueID();
 	}
 
@@ -45,7 +44,6 @@ public class Person  {
 	 * @param surname
 	 */
 	public Person(String name, String surname) {
-		super();
 		this.id = this.getUniqueID();
 		setPersonName(name);
 		setPersonSurname(surname);
@@ -56,25 +54,17 @@ public class Person  {
 	 */
 	private int getUniqueID(){
 		idRegister++;
-		//System.out.println("Vytvorena osoba s id " + idRegister);
 		return idRegister;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 * Chci aby se ID zobrazilo s leading zero!!!
-	 */
 	@Override
 	public String toString() {
-		String personDetail = "[" + String.format("%06d", this.id) + "] " + this.personSurname.toUpperCase() + " " + this.personName;
+		String personDetail = "[" + String.format("%06d", this.id) + "] " + this.personSurname.toUpperCase() + " " + this.personName ;
 		return personDetail;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 * int ma x bitu
-	 * 
-	 */
+	//Toto je zmetek - je nul, dokud to nezavolam!!! hashString
+	
 	@Override
 	public int hashCode() {
 		int hashInt = originalHashInt;
@@ -92,7 +82,7 @@ public class Person  {
 /*		System.out.println("hashCode Override BIN : " + Integer.toBinaryString(hashInt));
 		System.out.println("hashCode Override INT : " + hashInt);*/
 		
-		this.hashString = originalHashInt + "." + hashInt + "." + this.id ;
+		this.hashString = "" + originalHashInt + "." + hashInt + "." + this.id ;
 		
 		return hashInt;
 	}
