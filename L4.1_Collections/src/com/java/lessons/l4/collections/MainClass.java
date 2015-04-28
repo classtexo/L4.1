@@ -19,26 +19,31 @@ public class MainClass {
         personRegister.addNewPerson("Frantisek", "Novotny");
         personRegister.addNewPerson("Bohus", "Hlavaty");
         personRegister.addNewPerson("Jen", "Novak");
+        personRegister.addNewPerson("Frantisek", "Novotny");
         personRegister.addNewPerson("Anna", "Jiraskova");
         personRegister.addNewPerson("Jen", "Novak");
         
         Collections.sort(personRegister.register, new PersonComparatorByNames());
-        System.out.println(personRegister.toString());
+        System.out.println("Sorted by NAME\n" + personRegister.toString());
 
         Collections.sort(personRegister.register, new PersonComparatorById());
-        System.out.println(personRegister.toString());
+        System.out.println("Sorted by ID\n" + personRegister.toString());
 
         Person removePerson = new Person("Frantisek", "Novotny");
         
         for (Iterator<Person> iterator = personRegister.register.iterator(); iterator.hasNext();) {
             Person inspectedPerson = iterator.next();
-            if (inspectedPerson.equals(removePerson)) {
+            if (inspectedPerson.equalsToPerson(removePerson)) {
                 iterator.remove();
             }
         }
-        
+        System.out.println("Removed " + removePerson.toString() + " \n" + personRegister.toString());
         System.out.println(personRegister.toString());
-        
+ 
+        // Proc nefunguje equal na type Person. Proc to musim mit na Object?
+        Person doublePersonalRecord = new Person( "Jen","Novak");
+        System.out.println("Pocet vyskytu osoby " + doublePersonalRecord.personSurname + " " + doublePersonalRecord.personName + " : " +
+        		            Collections.frequency(personRegister.register,doublePersonalRecord));
 	}
 
 }

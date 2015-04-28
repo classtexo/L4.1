@@ -2,9 +2,6 @@ package com.java.lessons.l4.collections.lib;
 
 import java.util.Comparator;
 
-/**
- * @author vilem_reznicek
- */
 
 public class Person  {
 	
@@ -37,6 +34,7 @@ public class Person  {
 	 *   Unique ID is set using internal STATIC idRegister (inremented) 
 	 */
 	public Person() {
+	  super();	
 	  this.id = this.getUniqueID();
 	}
 
@@ -47,6 +45,7 @@ public class Person  {
 	 * @param surname
 	 */
 	public Person(String name, String surname) {
+		super();
 		this.id = this.getUniqueID();
 		setPersonName(name);
 		setPersonSurname(surname);
@@ -98,14 +97,29 @@ public class Person  {
 		return hashInt;
 	}
 	
+    @Override
+    public boolean equals(Object objectToCompareWith){
+    	boolean personIsSame = false;
+        if(!(objectToCompareWith instanceof Person)){
+        	personIsSame = false;
+        }else{
+            Person objPerson = (Person) objectToCompareWith;
+            if(this.personName.equals(objPerson.personName) && 
+               this.personSurname.equals(objPerson.personSurname)){
+            	personIsSame = true;
+            }
+        }
+		return personIsSame;
+    }	
 	
-	// Tady mi to nedovoli Override! Proc???
+	// Tady to uz neni potreba!!!! redundance kodu ???
 	/**
 	 * Comapres two persons. If name & surname are equal = TRUE
 	 * @param personToCompareWith
 	 * @return
 	 */
-	 public boolean equals(Person personToCompareWith) {
+	 public boolean equalsToPerson(Person personToCompareWith) {
+
 	   boolean personIsSame = true;
 	   if (!this.personName.equals(personToCompareWith.personName)) {
 		   personIsSame = false;}
@@ -125,21 +139,12 @@ public class Person  {
 	 * @param personToComapare
 	 * @return -1 0 1
 	 */
-	public int compareTo(Person personToComapare){
+	public int compareToPerson(Person personToComapare){
 		 int resultCmp = this.personSurname.compareTo(personToComapare.personSurname);
 		 if (resultCmp == 0) {
 			 resultCmp = this.personName.compareTo(personToComapare.personName);
 		 }
 		 return resultCmp;
 	 }
-
-	public int compare(Person personToComapare){
-		 int resultCmp = this.personSurname.compareTo(personToComapare.personSurname);
-		 if (resultCmp == 0) {
-			 resultCmp = this.personName.compareTo(personToComapare.personName);
-		 }
-		 return resultCmp;
-	 }
-	
 	
 }

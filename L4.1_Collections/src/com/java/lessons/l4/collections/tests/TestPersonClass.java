@@ -64,11 +64,11 @@ public class TestPersonClass {
 		Person testPerson2 = (Person) new Person();
 		System.out.println(testPerson2.toString());
 		
-		assertFalse(testPerson1.equals(testPerson2));
+		assertFalse(testPerson1.equalsToPerson(testPerson2));
 		testPerson2.setPersonName(sNewName);
 		testPerson2.setPersonSurname(sNewSurname);
 		System.out.println(testPerson2.toString());
-		assertTrue(testPerson1.equals(testPerson2));
+		assertTrue(testPerson1.equalsToPerson(testPerson2));
 		
 	 // Test metody toString => [000002] NOVAK Jan	
 		assertTrue(testPerson2.toString().equals("[000002] NOVAK Jan"));
