@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Logger;
 
+import com.java.lessons.l4.collections.lib.LogSetter;
 import com.java.lessons.l4.collections.lib.Person;
 import com.java.lessons.l4.collections.lib.PersonCollection;
 import com.java.lessons.l4.collections.lib.PersonComparatorById;
@@ -15,6 +17,9 @@ public class MainClass {
 
 	public static void main(String[] args) {
         
+		Logger logger = Logger.getLogger(MainClass.class.getName());
+		logger = LogSetter.setLogger(logger);
+		
         PersonCollection personRegister = new PersonCollection();
         personRegister.addNewPerson("Jan", "Novak");
         personRegister.addNewPerson("Jen", "Novak");
@@ -66,6 +71,9 @@ public class MainClass {
         	System.out.println("Map item <" + key + "> " + mapPersons.get(key).toString());
         }        
         
+        logger.info("info");
+        logger.warning("info");
+        logger.severe("info");
 
 	}
 
