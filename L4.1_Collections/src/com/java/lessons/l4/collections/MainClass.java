@@ -72,8 +72,8 @@ public class MainClass {
         }        
         
         logger.info("info");
-        logger.warning("info");
-        logger.severe("info");
+        logger.warning("warning");
+        logger.severe("severe");
 
 	}
 
